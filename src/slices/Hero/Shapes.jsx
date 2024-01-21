@@ -82,6 +82,12 @@ function Geometries() {
 		}),
 	];
 
+	const soundEffects = [
+		new Audio("/sounds/hit1.ogg"),
+		new Audio("/sounds/hit2.ogg"),
+		new Audio("/sounds/hit3.ogg"),
+	];
+
 	return geometries.map(({ position, r, geometry }) => (
 		<Geometry
 			key={JSON.stringify(position)}
@@ -89,11 +95,12 @@ function Geometries() {
 			geometry={geometry}
 			materials={materials}
 			r={r}
+			soundEffects={soundEffects}
 		/>
 	));
 }
 
-function Geometry({ r, position, geometry, materials }) {
+function Geometry({ r, position, geometry, materials, soundEffects }) {
 	const meshRef = useRef();
 	const [visible, setVisible] = useState(false);
 
@@ -105,6 +112,8 @@ function Geometry({ r, position, geometry, materials }) {
 
 	function handleClick(e) {
 		const mesh = e.object;
+
+		gsap.utils.random(soundEffects).play();
 
 		gsap.to(mesh.rotation, {
 			x: `+=${gsap.utils.random(0, 2)}`,

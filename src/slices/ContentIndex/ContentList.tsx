@@ -135,7 +135,7 @@ export const ContentList = ({
 					<div key={index}>
 						{isFilled.keyText(item.data.title) && (
 							<li
-								className="list-item opacity-0f "
+								className="list-item opacity-0 "
 								onMouseEnter={() => onMouseEnter(index)}
 								ref={(element) => (itemsRef.current[index] = element)}
 							>

@@ -108,6 +108,15 @@ export const ContentList = ({
 		};
 	}, [currentItem]);
 
+	useEffect(() => {
+		contentImages.forEach((url) => {
+			if (!url) return;
+
+			const img = new Image();
+			img.src = url;
+		});
+	}, [contentImages]);
+
 	const onMouseEnter = (index: number) => {
 		setCurrentItem(index);
 	};

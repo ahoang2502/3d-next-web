@@ -29,7 +29,7 @@ export const ContentList = ({
 	const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
 	const lastMousePosRef = useRef({ x: 0, y: 0 });
 
-	const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
+	const urlPrefix = contentType === "Blog" ? "/blog" : "/projects";
 
 	const contentImages = items.map((item) => {
 		const image = isFilled.image(item.data.hover_image)
